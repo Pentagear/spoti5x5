@@ -11,7 +11,7 @@
 
 	// Spotify API endpoint
 	$top_artists_url = 'https://api.spotify.com/v1/me/top/artists?limit=25';
-	$top_tracks_url = 'https://api.spotify.com/v1/me/top/tracks?limit=25';
+	$top_tracks_url  = 'https://api.spotify.com/v1/me/top/tracks?limit=25';
 
 	// Parse the request URI...
 	$path = array_filter( explode( '/', trim( parse_url( $_SERVER[ 'REQUEST_URI' ], PHP_URL_PATH ), '/' ) ) );
@@ -30,8 +30,10 @@
 
 	}
 	if( !in_array( $path[ 0 ], [ 'oauth', 'grid' ] ) ) {
+
 		header( 'Location: /' );
 		exit;
+
 	}
 
 	// STEP 2: Access Token
